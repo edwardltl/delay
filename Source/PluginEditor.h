@@ -16,13 +16,13 @@
 //==============================================================================
 /**
 */
-class DelayAudioProcessorEditor  : public AudioProcessorEditor
+class DelayAudioProcessorEditor  : public AudioProcessorEditor //Slider::Listener
 {
 public:
     DelayAudioProcessorEditor (DelayAudioProcessor&);
     ~DelayAudioProcessorEditor();
 
-    //==============================================================================
+   //==============================================================================
     void paint (Graphics&) override;
     void resized() override;
 
