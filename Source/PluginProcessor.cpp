@@ -311,6 +311,7 @@ void DelayAudioProcessor::setStateInformation (const void* data, int sizeInBytes
     if (xmlState != nullptr)
     {
         if (xmlState->hasTagName(parameters.state.getType()))
+        {
             parameters.state = (ValueTree::fromXml(*xmlState));
         }
     }
