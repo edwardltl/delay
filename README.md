@@ -1,14 +1,17 @@
 # Delay Plugin
 **133.385 Music Software Development 2 - Second Assessment**
 
-*Designed by Edward Lilley & Jordan La'ulu*
+*Designed & written by Edward Lilley & Jordan La'ulu using JUCE v5.4.3*
 
 
 ## Features
-* Wet(%), Delay Time(msecs) and Feedback(%) sliders
-* Automation
-* Save & Recall State
-* Smoothed Values
+* Graphical User Interface
+** Wet(%), Delay Time(msecs) and Feedback(%) sliders
+*** Editable text boxes
+*** Smoothed Values
+* AudioProcessorValueTreeState
+** Automation
+** Save & Recall State
 
 
 ## Demo Screenshot
