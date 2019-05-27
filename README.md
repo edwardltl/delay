@@ -6,12 +6,11 @@
 
 ## Features
 * Graphical User Interface
-** Wet(%), Delay Time(msecs) and Feedback(%) sliders
-*** Editable text boxes
-*** Smoothed Values
-* AudioProcessorValueTreeState
-** Automation
-** Save & Recall State
+* Wet(%), Delay Time(msecs) and Feedback(%) sliders
+* Editable text boxes
+* Smoothed Values
+* Automation
+* Save & Recall State
 
 
 ## Demo Screenshot
