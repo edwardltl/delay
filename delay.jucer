@@ -2,6 +2,9 @@
 
 <JUCERPROJECT id="YKJRgH" name="delay" projectType="audioplug" jucerVersion="5.4.3">
   <MAINGROUP id="YVe6r4" name="delay">
+    <GROUP id="{4DB04788-1C0C-C0A1-0231-B4ED747F55AA}" name="Resources">
+      <FILE id="BBO59R" name="bgImage.png" compile="0" resource="1" file="Resources/bgImage.png"/>
+    </GROUP>
     <GROUP id="{02896884-E546-9BA9-21FD-2B79B3F14047}" name="Source">
       <FILE id="YYTz59" name="PluginProcessor.cpp" compile="1" resource="0"
             file="Source/PluginProcessor.cpp"/>

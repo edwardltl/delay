@@ -81,6 +81,10 @@
 			isa = PBXBuildFile;
 			fileRef = 3D378684A2ECA2767386F15C;
 		};
+		B41BBA1E12701092FD4F91DD = {
+			isa = PBXBuildFile;
+			fileRef = 05EF83CD815F9518443381DE;
+		};
 		3FF39047EEFCEF672FD2C700 = {
 			isa = PBXBuildFile;
 			fileRef = 86E02460ED228210E9B9F8E4;
@@ -164,6 +168,20 @@
 			path = System/Library/Frameworks/IOKit.framework;
 			sourceTree = SDKROOT;
 		};
+		0496F9CDBD06EEDA37FD3476 = {
+			isa = PBXFileReference;
+			lastKnownFileType = sourcecode.c.h;
+			name = BinaryData.h;
+			path = ../../JuceLibraryCode/BinaryData.h;
+			sourceTree = "SOURCE_ROOT";
+		};
+		05EF83CD815F9518443381DE = {
+			isa = PBXFileReference;
+			lastKnownFileType = sourcecode.cpp.cpp;
+			name = BinaryData.cpp;
+			path = ../../JuceLibraryCode/BinaryData.cpp;
+			sourceTree = "SOURCE_ROOT";
+		};
 		0FDC089CEC896986C89586DB = {
 			isa = PBXFileReference;
 			lastKnownFileType = sourcecode.cpp.objcpp;
@@ -213,13 +231,6 @@
 			path = "../../JuceLibraryCode/include_juce_events.mm";
 			sourceTree = "SOURCE_ROOT";
 		};
-		3D378684A2ECA2767386F15C = {
-			isa = PBXFileReference;
-			lastKnownFileType = sourcecode.cpp.cpp;
-			name = PluginEditor.cpp;
-			path = ../../Source/PluginEditor.cpp;
-			sourceTree = "SOURCE_ROOT";
-		};
 		3E9D6AC4250E0ABBC271401E = {
 			isa = PBXFileReference;
 			lastKnownFileType = sourcecode.cpp.objcpp;
@@ -254,6 +265,13 @@
 			includeInIndex = 0;
 			path = libdelay.a;
 			sourceTree = "BUILT_PRODUCTS_DIR";
+		};
+		3D378684A2ECA2767386F15C = {
+			isa = PBXFileReference;
+			lastKnownFileType = sourcecode.cpp.cpp;
+			name = PluginEditor.cpp;
+			path = ../../Source/PluginEditor.cpp;
+			sourceTree = "SOURCE_ROOT";
 		};
 		5780BD942EED7A16FDAC33BF = {
 			isa = PBXFileReference;
@@ -444,6 +462,13 @@
 			path = ../../Source/PluginProcessor.cpp;
 			sourceTree = "SOURCE_ROOT";
 		};
+		B2A7F71CB3FF6F9022B42B3F = {
+			isa = PBXFileReference;
+			lastKnownFileType = image.png;
+			name = bgImage.png;
+			path = ../../Resources/bgImage.png;
+			sourceTree = "SOURCE_ROOT";
+		};
 		B4086E7110DAF92A4A4CBE10 = {
 			isa = PBXFileReference;
 			lastKnownFileType = file;
@@ -570,6 +595,14 @@
 			path = System/Library/Frameworks/AudioUnit.framework;
 			sourceTree = SDKROOT;
 		};
+		F05DC8A3F5D0E049EC211642 = {
+			isa = PBXGroup;
+			children = (
+				B2A7F71CB3FF6F9022B42B3F,
+			);
+			name = Resources;
+			sourceTree = "<group>";
+		};
 		5FB01DE4D434A72F5B6B3935 = {
 			isa = PBXGroup;
 			children = (
@@ -584,6 +617,7 @@
 		2E5BD6294C2C2CB27F0C63AE = {
 			isa = PBXGroup;
 			children = (
+				F05DC8A3F5D0E049EC211642,
 				5FB01DE4D434A72F5B6B3935,
 			);
 			name = delay;
@@ -613,6 +647,8 @@
 			isa = PBXGroup;
 			children = (
 				61D84CD8566595A44D8C5D8B,
+				05EF83CD815F9518443381DE,
+				0496F9CDBD06EEDA37FD3476,
 				86E02460ED228210E9B9F8E4,
 				9511978FFED563189A766819,
 				DAB72FE37117B3BBC1F2F792,
@@ -1440,6 +1476,7 @@
 			files = (
 				C17D48FFC579505E9F862E2F,
 				6D883B32858781D9DDD7EB46,
+				B41BBA1E12701092FD4F91DD,
 				3FF39047EEFCEF672FD2C700,
 				8C5DE0EC4DEF2395FC553C44,
 				EFBA1D65B980F798B90B2DC8,

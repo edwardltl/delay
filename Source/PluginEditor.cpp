@@ -22,10 +22,11 @@ DelayAudioProcessorEditor::DelayAudioProcessorEditor (DelayAudioProcessor& p, Au
     setResizeLimits (320, 175, 420, 175); // sets desired resize limits
     setResizable (true, true); // self explanatory
     
+    bgImage = ImageCache::getFromMemory(BinaryData::bgImage_png, BinaryData::bgImage_pngSize); // background image
     
-    // WET SLIDER
+    // SPACE STONE SLIDER
     wetSlider.setSliderStyle(Slider::SliderStyle::RotaryVerticalDrag); // sets the style of slider as a rotating knob controlled by vertical dragging
-    wetSlider.setColour(Slider::ColourIds::rotarySliderFillColourId, Colours::slateblue); // sets the colour of slider to medium purple
+    wetSlider.setColour(Slider::ColourIds::rotarySliderFillColourId, Colours::royalblue); // sets the colour of slider to blue
     wetSlider.setColour(Slider::ColourIds::thumbColourId, Colours::white); // sets the slider thumb colour to white
     
     wetSlider.setTextBoxStyle(Slider::TextEntryBoxPosition::TextBoxBelow, false, 60, 15); // creates text box to show/edit value below slider
@@ -33,20 +34,20 @@ DelayAudioProcessorEditor::DelayAudioProcessorEditor (DelayAudioProcessor& p, Au
     wetSlider.setTextValueSuffix("%"); // shows the text box value as a percentage
     wetSlider.setColour(Slider::ColourIds::textBoxBackgroundColourId, Colours::black); // sets background of textbox to opaque black
     wetSlider.setColour(Slider::ColourIds::textBoxOutlineColourId, Colours::transparentBlack); // removes the textbox border
-    wetSlider.setColour(Slider::ColourIds::textBoxTextColourId, Colours::gold); // sets text box to gold
+    wetSlider.setColour(Slider::ColourIds::textBoxTextColourId, Colours::slateblue); // sets text colour to purple
 
     addAndMakeVisible(wetSlider); // makes slider visible
 
     wetAttachment.reset(new juce::AudioProcessorValueTreeState::SliderAttachment (valueTreeState, "wet", wetSlider)); // attaching the slider to the plugin processor
     
-    wetLabel.setText ("Wet", dontSendNotification); // sets label text
+    wetLabel.setText ("Space", dontSendNotification); // sets label text
     wetLabel.setJustificationType(Justification::centredTop); // centres label
     addAndMakeVisible (wetLabel); // makes label for slider visible
     
     
-    // TIME SLIDER
+    // TIME STONE SLIDER
     timeSlider.setSliderStyle(Slider::SliderStyle::RotaryVerticalDrag); // sets the style of slider as a rotating knob controlled by vertical dragging
-    timeSlider.setColour(Slider::ColourIds::rotarySliderFillColourId, Colours::slateblue); // sets the colour of slider to purple
+    timeSlider.setColour(Slider::ColourIds::rotarySliderFillColourId, Colours::green); // sets the colour of slider to green
     timeSlider.setColour(Slider::ColourIds::thumbColourId, Colours::white); // sets the slider thumb colour to white
     
     timeSlider.setTextBoxStyle(Slider::TextEntryBoxPosition::TextBoxBelow, false, 80, 15); // creates text box to show/edit value below slider
@@ -54,7 +55,7 @@ DelayAudioProcessorEditor::DelayAudioProcessorEditor (DelayAudioProcessor& p, Au
     timeSlider.setTextValueSuffix("ms"); // shows the text box value as unit of time
     timeSlider.setColour(Slider::ColourIds::textBoxBackgroundColourId, Colours::black); // sets background of textbox to opaque black
     timeSlider.setColour(Slider::ColourIds::textBoxOutlineColourId, Colours::transparentBlack); // removes the textbox border
-    timeSlider.setColour(Slider::ColourIds::textBoxTextColourId, Colours::gold); // sets text box to gold
+    timeSlider.setColour(Slider::ColourIds::textBoxTextColourId, Colours::slateblue); // sets text colour to purple
     
     addAndMakeVisible(timeSlider); // makes slider visible
     
@@ -65,9 +66,9 @@ DelayAudioProcessorEditor::DelayAudioProcessorEditor (DelayAudioProcessor& p, Au
     addAndMakeVisible (timeLabel); // makes label for slider visible
     
     
-    // FEEDBACK SLIDER
+    // POWER STONE SLIDER
     feedbackSlider.setSliderStyle(Slider::SliderStyle::RotaryVerticalDrag); // sets the style of slider as a rotating knob controlled by vertical dragging
-    feedbackSlider.setColour(Slider::ColourIds::rotarySliderFillColourId, Colours::slateblue); // sets the colour of slider to purple
+    feedbackSlider.setColour(Slider::ColourIds::rotarySliderFillColourId, Colours::darkviolet); // sets the colour of slider to purple
     feedbackSlider.setColour(Slider::ColourIds::thumbColourId, Colours::white); // sets the slider thumb colour to white
     
     feedbackSlider.setTextBoxStyle(Slider::TextEntryBoxPosition::TextBoxBelow, false, 60, 15); // creates text box to show/edit value below slider
@@ -75,13 +76,13 @@ DelayAudioProcessorEditor::DelayAudioProcessorEditor (DelayAudioProcessor& p, Au
     feedbackSlider.setTextValueSuffix("%"); // shows the text box value as a percentage
     feedbackSlider.setColour(Slider::ColourIds::textBoxBackgroundColourId, Colours::black); // sets background of textbox to opaque black
     feedbackSlider.setColour(Slider::ColourIds::textBoxOutlineColourId, Colours::transparentBlack); // removes the textbox border
-    feedbackSlider.setColour(Slider::ColourIds::textBoxTextColourId, Colours::gold); // sets text box to gold
+    feedbackSlider.setColour(Slider::ColourIds::textBoxTextColourId, Colours::slateblue); // sets text colour to purple
     
     addAndMakeVisible(feedbackSlider); // makes slider visible
     
     feedbackAttachment.reset(new juce::AudioProcessorValueTreeState::SliderAttachment (valueTreeState, "feedback", feedbackSlider)); // attaching the slider to the plugin processor
     
-    feedbackLabel.setText ("Feedback", dontSendNotification); // sets label text
+    feedbackLabel.setText ("Power", dontSendNotification); // sets label text
     feedbackLabel.setJustificationType(Justification::centredTop); // centres label
     addAndMakeVisible (feedbackLabel); // makes label for slider visible
 }
@@ -95,16 +96,7 @@ void DelayAudioProcessorEditor::paint (Graphics& g)
 {
     // (Our component is opaque, so we must completely fill the background with a solid colour)
     g.fillAll (getLookAndFeel().findColour (ResizableWindow::backgroundColourId)); // default background
-
-    // HEADER
-    g.setColour (Colours::white); // sets desired font colour
-    g.setFont (Font ("Arial", 15.0f, Font::bold)); // sets typeface, size
-    g.drawFittedText ("Basic Delay", getLocalBounds(), Justification::centredTop, 1); // desired text
-    
-    // FOOTER
-    g.setColour (Colours::white); // sets desired font colour
-    g.setFont (Font ("Arial", 8.0f, Font::plain)); // sets typeface, size
-    g.drawFittedText ("Authors: Edward Lilley & Jordan La'ulu", getLocalBounds(), Justification::centredBottom, 1); // desired text
+    g.drawImageWithin(bgImage, 0, 0, getWidth(), getHeight(), RectanglePlacement::fillDestination);
 }
 
 void DelayAudioProcessorEditor::resized()

@@ -29,6 +29,8 @@ public:
 private:
     AudioProcessorValueTreeState& valueTreeState;
     
+    Image bgImage; // background image
+    
     // creating sliders
     Slider wetSlider;
     Slider timeSlider;
